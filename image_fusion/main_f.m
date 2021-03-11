@@ -26,12 +26,11 @@ for i=1:k1
 end
 %% Inverse Wavelet Transform 
 c=idwt2(a3,b3,c3,d3,'db2');
-imshow(a);
-title('First Image');
-figure,imshow(b);
-title('Second Image');
-figure,imshow(c,[]);
-title('Fused Image');
+%figure,imshow(a);
+%title('First Image');
+%figure,imshow(b);
+%title('Second Image');
+%%title('Fused Image');
 %% Performance Criteria
 CR1=corr2(a,c);
 CR2=corr2(b,c);

@@ -1,17 +1,25 @@
-% function ffnew = main_total(filename)
-filename ='E:\Matlab\bin\bio\new\Simple_FingerPrint_Matching\FVC2002\DB1_B\102_3.tif';
- addpath(genpath(pwd));
+function [ffnew] = main_total(filename)
+addpath(genpath(pwd));
 %% BUILD FINGERPRINT TEMPLATE DATABASE
-% build_db(9,8);        %THIS WILL TAKE ABOUT 30 MINUTES
-load('db.mat');
+  %build_db(6,8);        %THIS WILL TAKE ABOUT 30 MINUTES
+%load('db.mat');
 
 %% EXTRACT FEATURES FROM AN ARBITRARY FINGERPRINT
-%filename='101_1.tif';
-img = imread(filename);
+%filename='1_1.bmp';
+%img = imread(filename);
+img = filename;
 if ndims(img) == 3; img = rgb2gray(img); end  % Color Images
-disp(['Extracting features from ' filename ' ...']);
+%disp(['Extracting features from ' filename ' ...']);
 ffnew=ext_finger(img,1);
-
-figure ;
-    imshow(ffnew);
-    title('ffnew');
+%figure, imshow(ffnew);
+%% FOR EACH FINGERPRINT TEMPLATE, CALCULATE MATCHING SCORE IN COMPARISION WITH FIRST ONE
+%S=zeros(72,1);
+%for i=1:48
+%    second=['10' num2str(fix((i-1)/8)+1) '_' num2str(mod(i-1,8)+1)];
+    %fprintf(['Computing similarity between ' filename ' and ' second ' from FVC2002 : ']);
+%    S(i)=match(ffnew,ff{i});
+%    fprintf([num2str(S(i)) '\n']);
+%    drawnow
+%end
+%% OFFER MATCHED FINGERPRINTS
+%Matched_FigerPrints=find(S>0.48)

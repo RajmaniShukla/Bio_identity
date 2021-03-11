@@ -89,9 +89,9 @@ function [ ret ] = ext_finger( img, display_flag )
     inv_binim = (binim == 0);
     thinned =  bwmorph(inv_binim, 'thin',Inf);
     mask_t=mask;
-    if numel(find(mask(125:150,150:250)>0)) > 0 && numel(find(mask(250:275,150:250)>0)) > 0
-      mask(150:250,150:250)=1;
-    end
+    %if numel(find(mask(125:150,150:250)>0)) > 0 && numel(find(mask(250:275,150:250)>0)) > 0
+    %  mask(150:250,150:250)=1;
+    %end
     method=-1; core_y = 0; core_x = 0; core_val=0; lc=0;
     o_img=sin(orient_img); o_img(mask == 0) = 1;
 
@@ -258,9 +258,6 @@ function [ ret ] = ext_finger( img, display_flag )
     end
     mask=mask_t; path_len = 45;
 
-    figure ;
-    imshow(mask);
-    title('mask');
 % Finding Minutiae --------------------------------------------------------
     if display_flag==1; fprintf('done.\n >>> finding minutiae '); end
     minu_count = 1;
@@ -557,13 +554,9 @@ function [ ret ] = ext_finger( img, display_flag )
               end
             end
         end
-        figure;
-        subplot(1,2,1), subimage(img), title('Original image')
-        subplot(1,2,2), subimage(combined), title('Minutiae')
+        %figure;
+        %subplot(1,2,1), subimage(img), title('Original image')
+        %subplot(1,2,2), subimage(combined), title('Minutiae')
     end
-    ret=minutiae_img;
-    
-figure ;
-    imshow(minutiae_img);
-    title('minutiae');
+    ret=minutiae;
 end

@@ -13,10 +13,11 @@
 % July 2013
 
 function build_db(ICount, JCount)
+addpath('D:\New folder (2)\Matlab\bin\bio\new\Simple_FingerPrint_Matching\FVC2002\DB1_A');
     p=0;
     for i=1:ICount
         for j=1:JCount
-            filename=['10' num2str(i) '_' num2str(48) '.tif'];
+            filename=[ num2str(i) '_' num2str(j) '.bmp'];
             img = imread(filename); p=p+1;
             if ndims(img) == 3; img = rgb2gray(img); end   % colour image
             disp(['extracting features from ' filename ' ...']);

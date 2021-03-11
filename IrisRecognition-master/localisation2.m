@@ -1,9 +1,9 @@
-function [out xc yc time]=localisation2(img,scale);
+function [out, xc, yc, time]=localisation2(img,scale)
 %for localising the iris based on black hole search.
 tic;
 x=0;
 y=0;
-scalewin=50*scale
+scalewin=50*scale;
 xmin=255*scalewin;
 %b=rgb2gray(img);
 b=imresize(img,scale);
